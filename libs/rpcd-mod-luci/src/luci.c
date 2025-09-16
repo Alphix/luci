@@ -495,7 +495,7 @@ lease_next(void)
 				if (!e.iaid)
 					continue;
 
-				if (!strcmp(p, "ipv4")) {
+				if (!strcmp(e.iaid, "ipv4")) {
 					e.af = AF_INET;
 					e.mask = 32;
 				}
