@@ -1418,7 +1418,7 @@ return view.extend({
 									host || '-',
 									lease.ip6addrs ? lease.ip6addrs.join('<br />') : lease.ip6addr,
 									lease.duid,
-									lease.iaid || '-',
+									lease.iaid,
 									exp
 								];
 							}),
