@@ -36,13 +36,13 @@ const callUfpList = rpc.declare({
 const CBILeaseStatus = form.DummyValue.extend({
 	renderWidget(section_id, option_id, cfgvalue) {
 		return E([
-			E('h4', _('Active DHCP Leases')),
+			E('h4', _('Active DHCPv4 Leases')),
 			E('table', { 'id': 'lease_status_table', 'class': 'table' }, [
 				E('tr', { 'class': 'tr table-titles' }, [
 					E('th', { 'class': 'th' }, _('Hostname')),
-					E('th', { 'class': 'th' }, _('IPv4 address')),
-					E('th', { 'class': 'th' }, _('MAC address')),
-					E('th', { 'class': 'th' }, _('Lease time remaining'))
+					E('th', { 'class': 'th' }, _('IPv4 Address')),
+					E('th', { 'class': 'th' }, _('MAC Address')),
+					E('th', { 'class': 'th' }, _('Remaining Time'))
 				]),
 				E('tr', { 'class': 'tr placeholder' }, [
 					E('td', { 'class': 'td' }, E('em', _('Collecting data...')))
@@ -59,10 +59,10 @@ const CBILease6Status = form.DummyValue.extend({
 			E('table', { 'id': 'lease6_status_table', 'class': 'table' }, [
 				E('tr', { 'class': 'tr table-titles' }, [
 					E('th', { 'class': 'th' }, _('Hostname')),
-					E('th', { 'class': 'th' }, _('IPv6 addresses')),
+					E('th', { 'class': 'th' }, _('IPv6 Addresses')),
 					E('th', { 'class': 'th' }, _('DUID')),
 					E('th', { 'class': 'th' }, _('IAID')),
-					E('th', { 'class': 'th' }, _('Lease time remaining'))
+					E('th', { 'class': 'th' }, _('Remaining Time'))
 				]),
 				E('tr', { 'class': 'tr placeholder' }, [
 					E('td', { 'class': 'td' }, E('em', _('Collecting data...')))
@@ -781,7 +781,7 @@ return view.extend({
 			so.value(mac, hint ? '%s (%s)'.format(mac, hint) : mac);
 		});
 
-		so = ss.option(form.Value, 'ip', _('IPv4 address'), _('The IPv4 address for this host, or <em>ignore</em> to ignore DHCP requests from this host.'));
+		so = ss.option(form.Value, 'ip', _('IPv4 Address'), _('The IPv4 address for this host, or <em>ignore</em> to ignore DHCP requests from this host.'));
 		so.value('ignore', _('Ignore'));
 		so.datatype = 'or(ip4addr,"ignore")';
 		so.validate = function(section, value) {
@@ -819,7 +819,7 @@ return view.extend({
 		});
 
 		so = ss.option(form.Value, 'leasetime',
-			_('Lease time'),
+			_('Lease Time'),
 			_('Host-specific lease time, e.g. <code>5m</code>, <code>3h</code>, <code>7d</code>.'));
 		so.rmempty = true;
 		so.value('5m', _('5m (5 minutes)'));
