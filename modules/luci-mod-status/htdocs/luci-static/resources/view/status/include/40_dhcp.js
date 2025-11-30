@@ -107,10 +107,10 @@ return baseclass.extend({
 		const table = E('table', { 'id': 'status_leases', 'class': 'table lases' }, [
 			E('tr', { 'class': 'tr table-titles' }, [
 				E('th', { 'class': 'th' }, _('Hostname')),
-				E('th', { 'class': 'th' }, _('IPv4 address')),
-				E('th', { 'class': 'th' }, _('MAC address')),
+				E('th', { 'class': 'th' }, _('IPv4 Address')),
+				E('th', { 'class': 'th' }, _('MAC Address')),
 				E('th', { 'class': 'th' }, _('DUID')),
-				E('th', { 'class': 'th' }, _('Lease time remaining')),
+				E('th', { 'class': 'th' }, _('Remaining Time')),
 				isReadonlyView ? E([]) : E('th', { 'class': 'th cbi-section-actions' }, _('Static Lease'))
 			])
 		]);
@@ -160,10 +160,10 @@ return baseclass.extend({
 		const table6 = E('table', { 'id': 'status_leases6', 'class': 'table leases6' }, [
 			E('tr', { 'class': 'tr table-titles' }, [
 				E('th', { 'class': 'th' }, _('Host')),
-				E('th', { 'class': 'th' }, _('IPv6 addresses')),
+				E('th', { 'class': 'th' }, _('IPv6 Addresses')),
 				E('th', { 'class': 'th' }, _('DUID')),
 				E('th', { 'class': 'th' }, _('IAID')),
-				E('th', { 'class': 'th' }, _('Lease time remaining')),
+				E('th', { 'class': 'th' }, _('Remaining Time')),
 				isReadonlyView ? E([]) : E('th', { 'class': 'th cbi-section-actions' }, _('Static Lease'))
 			])
 		]);
@@ -221,7 +221,7 @@ return baseclass.extend({
 		}, this)), E('em', _('There are no active leases')));
 
 		return E([
-			E('h3', _('Active DHCP Leases')),
+			E('h3', _('Active DHCPv4 Leases')),
 			table,
 			E('h3', _('Active DHCPv6 Leases')),
 			table6
